@@ -1,6 +1,7 @@
 ## Projeto de Sistema de Frete
 
 ### Descrição
+Trabalho realizado por Jorge Silva e Rafael Simas para obtenção de nota na Disciplina de Laboratório de Banco de Dados. 
 
 ### Requisitos
 
