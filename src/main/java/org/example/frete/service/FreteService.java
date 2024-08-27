@@ -41,7 +41,7 @@ public class FreteService {
         if (frete.getCategoriaFrete().getId() == null) {
             frete.setCategoriaFrete(categoriaFreteRepository.salvaOuAtualiza(frete.getCategoriaFrete()));
         }
-
+        frete = freteRepository.salvaOuAtualiza(frete);
         BigDecimal valorFrete = calcularValorFrete(frete);
         frete.setValorKmRodado(valorFrete);
 

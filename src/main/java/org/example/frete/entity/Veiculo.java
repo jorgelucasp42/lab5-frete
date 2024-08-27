@@ -15,9 +15,11 @@ public class Veiculo implements EntidadeBase {
     private String numeroPlaca;
 
     @ManyToOne
+    @NonNull
     private Filial filial;
 
     @ManyToOne
+    @NonNull
     private TipoVeiculo tipoVeiculo;
 
     @Override

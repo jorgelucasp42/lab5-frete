@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 import java.util.Set;
 import java.util.LinkedHashSet;
 
-@Data @Builder
+@Data
+@Builder
 @NoArgsConstructor @AllArgsConstructor
 @Entity
 public class Frete implements EntidadeBase {
@@ -19,24 +20,29 @@ public class Frete implements EntidadeBase {
     private BigDecimal valorKmRodado;
 
     @ManyToOne
+    @NonNull
     private Cliente cliente;
 
     @ManyToOne
+    @NonNull
     private Veiculo veiculo;
 
     @ManyToOne
+    @NonNull
     private Cidade cidadeOrigem;
 
     @ManyToOne
+    @NonNull
     private Cidade cidadeDestino;
 
-    @ManyToOne
-    private Funcionario funcionario;
+//    @ManyToOne
+//    private Funcionario funcionario;
 
     @OneToMany
     private Set<ItemFrete> itens = new LinkedHashSet<>();
 
     @ManyToOne
+    @NonNull
     private CategoriaFrete categoriaFrete;
 
     public BigDecimal calcularFrete() {

@@ -1,6 +1,7 @@
 package org.example.frete.repository;
 
 import org.example.frete.entity.Cidade;
+import org.example.frete.entity.Distancia;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -33,10 +34,15 @@ public class CidadeRepository {
         daoGenerico.remove(cidade);
     }
     public int buscaPorDistancia(Cidade origem, Cidade destino) {
-        return this.manager.createQuery("select d.quilometros from Distancia d where d.cidadeOrigem = :origem and d.cidadeDestino = :destino", Integer.class)
-                .setParameter("origem", origem)
-                .setParameter("destino", destino)
+        Distancia distancia = this.manager.createQuery(
+                        "select d from Distancia d where d.cidadeOrigem.id = :origemId and d.cidadeDestino.id = :destinoId",
+                        Distancia.class
+                )
+                .setParameter("origemId", origem.getId())
+                .setParameter("destinoId", destino.getId())
                 .getSingleResult();
+
+        return distancia.getQuilometros();
     }
 
 }

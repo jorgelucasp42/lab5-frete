@@ -6,10 +6,12 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Entity
+@Builder
 public class Cidade implements EntidadeBase {
 
     @EqualsAndHashCode.Include
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String uf;
